@@ -6,13 +6,13 @@ name: Deploy Bicep files
 parameters:
 - name: azureServiceConnection
   type: string
-  default: 'Azure Resource Manager Connection - RG-CDT-ODS-DEVSECOPS-CE-D-001'
+  default: 'Azure Resource Manager Connection'
 
 variables:
   vmImageName: 'ubuntu-latest'
-  resourceGroupName: 'RG-CDT-ODS-DEVSECOPS-CE-D-001'
+  resourceGroupName: 'RG'
   location: 'West US'
-  csmFileLink: 'https://github.com/Chieme-CDT/devtest/blob/main/vnet.bicep'
+  csmFileLink: 'https://github.com/Chieme01/azure-bicep-devops-aks/blob/main/vnet.bicep'
   templateFile: './main.bicep'
   csmParametersFile: './main.bicepparam'
   dependecy_templateFile: './keyvault.bicep'
@@ -55,4 +55,5 @@ steps:
   inputs:
     targetPath: '$(Pipeline.Workspace)'
     artifact: 'groundwork'
+
     publishLocation: 'pipeline'
